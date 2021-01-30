@@ -9,6 +9,11 @@ body {
     font-family: sans-serif;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 h1 {
     padding: 48px;
 }
@@ -34,8 +39,25 @@ nav {
     background-color: #b0d892;
     padding: 128px 0;
     margin-bottom: 24px;
+    /* This calc method will leave 2% of space on the row. We can then adjust the space to go between the items (gutter). */
+    width: calc(98%/3);
 }
 
 footer {
     padding: 48px 0;
+}
+
+/* Liquid or fluid layouts are great for touch devices, but on desktops we often want to switch to a fixed width, centered container.  */
+@media only screen and (min-width: 1300px) {
+    .fixed-container {
+        /* The width of our container cannot be wider than our breakpoint (viewport size). */
+        width: 1250px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .fixed-container {
+        width: 1750px;
+    }
 }
